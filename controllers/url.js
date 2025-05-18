@@ -11,7 +11,8 @@ async function HndelGenerateNewShortUrl(req,res){
     visitHistory : [],
   })
 
-  return res.json({id : shortID});
+  return res.json({ shortId: shortID });
+
 }
 
 async function HandleGetAnalytics(req,res){
