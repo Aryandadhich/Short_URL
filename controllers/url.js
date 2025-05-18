@@ -10,8 +10,9 @@ async function HndelGenerateNewShortUrl(req,res){
     redirectUrl: body.url,
     visitHistory : [],
   })
-
-  return res.json({ shortId: shortID });
+  return res.render('home',{
+    id : shortID,
+  })
 
 }
 

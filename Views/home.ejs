@@ -15,13 +15,17 @@
 
 <body>
     <h1>URL Shortner</h1>
+    <% if (locals.id) { %>
+        <p>URL GENERATED : <a href="http://localhost:8001/<%= id %>">http://localhost:8001/<%= id %></a></p>
+      <% } %>
+      
     <div>
-        <form method="POST" action="/url">
-            <label>Enter Your Original URL</label>
-            <input type="text" name="url" placeholder="https://example.com" />
-            <button type="submit">Generate</button>
-        </form>
-    </div>
+                <form method="POST" action="/url">
+                    <label>Enter Your Original URL</label>
+                    <input type="text" name="url" placeholder="https://example.com" />
+                    <button type="submit">Generate</button>
+                </form>
+            </div>
 </body>
 
 </html>

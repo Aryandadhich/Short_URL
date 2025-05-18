@@ -31,6 +31,9 @@ app.get('/:shortId', async (req, res) => {
   const entry = await URL.findOneAndUpdate({
     shortId
   }, { $push: { visitHistory: { timestamp: Date.now() } } });
+  if(!entry) {
+    return res.status(404).json({ error: 'URL not found' });
+  }
   res.redirect(entry.redirectUrl); // This will redirect the user to the original URL
 });
 
