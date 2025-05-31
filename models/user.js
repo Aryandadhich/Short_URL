@@ -10,11 +10,11 @@ const userSchema = new mongoose.Schema({  // schema is a blueprint for the data 
         unique: true
     },
     password: {
-        type: String,
+        type: String, 
         required: true
     },
 },{timestamps:true});
 
-const User = moongose.model('user',userSchema);
+const User = mongoose.model('user',userSchema);
 
 module.export = User;
