@@ -5,7 +5,7 @@ async function handleUserSignup(req,res){
     await User.create({ //create a new user in the database
         name,
         email,
-        password
+        password,
     });
     return res.render("home"); //render the home page after successful signup
 }

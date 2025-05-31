@@ -9,6 +9,10 @@ router.get('/',  async (req,res)=>{
         urls: allurls
     }
 })
+
+router.get('/signup', (req,res)=>{
+  return res.render("signup"); // render the signup page
+})
 // async function to handle the request and response and 
 // let you use await inside the function
 // and await paused the code execution until the async task is completed
