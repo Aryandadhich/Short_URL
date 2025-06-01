@@ -4,12 +4,17 @@ const path = require("path");
 const { connectToMongodb } = require('./connect');
 
 const URL = require('./models/url');
+
+// Importing routes
 const urlroute = require('./routes/url');
 const staticroute = require('./routes/staticRouter');
 const userroute = require('./routes/user');
 
+
+
 const app = express();
 const Port = 8001;
+
 // Connect to MongoDB
 connectToMongodb('mongodb://127.0.0.1:27017/short-url')
 .then(() => {
@@ -28,6 +33,8 @@ app.use(express.urlencoded({ extended: false })); // For parsing application/x-w
 app.use("/url", urlroute);
 app.use("/", staticroute); // This serves the static files from the public folder
 app.use("/user",userroute);
+
+
 // Redirecting based on short URL
 app.get('/:shortId', async (req, res) => {
   const shortId = req.params.shortId;

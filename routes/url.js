@@ -1,5 +1,5 @@
 const express = require('express')
-const {HndelGenerateNewShortUrl, HandleGetAnalytics} = require("../controllers/url")
+const {HndelGenerateNewShortUrl, HandleDeleteShortUrl,HandleGetAnalytics} = require("../controllers/url")
 const router = express.Router();
 
 router.post('/',HndelGenerateNewShortUrl)
