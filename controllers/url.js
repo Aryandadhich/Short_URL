@@ -10,8 +10,10 @@ async function HndelGenerateNewShortUrl(req,res){
     redirectUrl: body.url,
     visitHistory : [],
   })
+  const allUrls = await URL.find({}) // this will get all the urls from the database
   return res.render('home',{
     id : shortID,
+    urls: allUrls,  
   })
 
 }
@@ -24,6 +26,16 @@ async function HandleGetAnalytics(req,res){
   })
 }
 
+async function HandleDeleteShortUrl(req,res){
+      const shortId = req.params.shortId; //this grab shortid from url 
+      await URL.deleteOne({shortId});
+      const allUrls = await URL.find({});
+
+      return res.render('home',{
+        urls: allUrls,
+        id:null //optional clears the generated id 
+      });
+}
 module.exports={
-    HndelGenerateNewShortUrl, HandleGetAnalytics
+    HndelGenerateNewShortUrl, HandleGetAnalytics,HandleDeleteShortUrl
 }

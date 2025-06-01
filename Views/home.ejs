@@ -87,6 +87,12 @@
                                     <td>
                                         <%= url.visitHistory.length %>
                                     </td>
+                                    <td>
+                                        <form method="POST" action="/url/delete/<%= url.shortId%>"
+                                            onsubmit="return confirm('Are you sure you want to delte');">
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 <% }) %>
                         </tbody>
