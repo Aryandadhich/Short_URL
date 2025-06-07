@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px 30px;
+            width: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (typeof error !=='undefined' && error) { %>
+        <script>
+            alert("<%= error %>");
+        </script>
+        <% } %>
+
+            <form action="/User/login" method="post">
+                <h1>Sign Up</h1>
+                <label>Email</label>
+                <input type="email" required name="email" />
+                <label>Password</label>
+                <input type="password" required name="password" />
+                <button type="submit">Login</button>
+            </form>
+</body>
+
+</html>

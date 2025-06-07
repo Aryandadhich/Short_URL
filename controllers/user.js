@@ -12,11 +12,26 @@ async function handleUserSignup(req,res){
         email,
         password,
     });
-    return res.render("home"); //render the home page after successful signup
+    return res.render("/"); //render the home page after successful signup
 }catch(err){
          return res.render("signup",{error: "something went wrong"})
     }
 }
+
+async function handleUserLogin(req,res){
+    const {email,password}= req.body; //backend receive data
+    try{
+        const existinguser = await User.findOne({email,password});
+        if(!existinguser){
+            return res.render("login",{
+                error: "invalid email or password"
+            }); 
+        }//render the home page after successful login
+        return res.redirect("/")
+    }catch(err){
+        return res.render("login",{error: "something went wrong"})
+    }
+}
 module.exports = {
-    handleUserSignup
+    handleUserSignup,handleUserLogin
 }
