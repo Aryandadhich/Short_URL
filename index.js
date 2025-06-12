@@ -32,7 +32,7 @@ app.use(express.json()); // For parsing application/json
 app.use(express.urlencoded({ extended: false })); // For parsing application/x-www-form-urlencoded
 app.use(cookieParser());
 // Routes
-app.use("/url",restrictToLoggedinUserOnly, urlroute);
+app.use("/url", restrictToLoggedinUserOnly, urlroute);
 app.use("/", staticroute); // This serves the static files from the public folder
 app.use("/user",userroute);
 
