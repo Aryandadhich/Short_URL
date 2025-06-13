@@ -31,7 +31,7 @@ async function handleUserLogin(req,res){
         }//render the home page after successful login
         //if all correct in your login then i will create a session id for you
         const sessionId = uuidv4();
-        setUser(sessionId, User)
+        setUser(sessionId, existinguser)
         res.cookie('uid',sessionId)
         return res.redirect("/")
     }catch(err){

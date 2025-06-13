@@ -2,7 +2,7 @@ const sessionIdToUserMap = new Map();
 //its a small dictionary jo session id k against user rakhti hai 
 
 function setUser(id, user){
-    sessionIdToUserMap.set(id,user);
+    sessionIdToUserMap.set(id, user);
 }
 //if any successful login will be there then uska session id or user info is map me daal diya
 
