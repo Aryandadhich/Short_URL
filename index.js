@@ -3,7 +3,7 @@ const express = require('express');
 const path = require("path");
 const cookieParser = require('cookie-parser')
 const { connectToMongodb } = require('./connect');
-const {restrictToLoggedinUserOnly} = require('./middleware/auth')
+const {restrictToLoggedinUserOnly, checkAuth} = require('./middleware/auth')
 
 const URL = require('./models/url');
 
@@ -33,8 +33,9 @@ app.use(express.urlencoded({ extended: false })); // For parsing application/x-w
 app.use(cookieParser());
 // Routes
 app.use("/url", restrictToLoggedinUserOnly, urlroute);
-app.use("/", staticroute); // This serves the static files from the public folder
 app.use("/user",userroute);
+app.use("/", checkAuth,staticroute); // This serves the static files from the public folder
+
 
 
 // Redirecting based on short URL

@@ -11,7 +11,7 @@ async function HndelGenerateNewShortUrl(req,res){
     visitHistory : [],
     createdBy : req.user._id,
   })
-  const allUrls = await URL.find({}) // this will get all the urls from the database
+  const allUrls = await URL.find({createdBy: req.user._id}) // this will get all the urls from the database
   return res.render('home',{
     id : shortID,
     urls: allUrls,  
