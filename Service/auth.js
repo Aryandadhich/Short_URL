@@ -1,4 +1,4 @@
-const sessionIdToUserMap = new Map();
+//const sessionIdToUserMap = new Map(); no meed of state
 //its a small dictionary jo session id k against user rakhti hai 
 
 function setUser(id, user){
