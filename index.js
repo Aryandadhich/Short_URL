@@ -53,3 +53,9 @@ app.get('/:shortId', async (req, res) => {
 app.listen(Port, () => {
   console.log(`server is running on ${Port}`);
 });
+
+
+
+//always check your github username and mail to commit with right mail id 
+//for that command is - git config user.name
+//git config user.email
