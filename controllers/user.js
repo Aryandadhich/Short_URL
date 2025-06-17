@@ -23,16 +23,16 @@ async function handleUserSignup(req,res){
 async function handleUserLogin(req,res){
     const {email,password}= req.body; //backend receive data
     try{
-        const existinguser = await User.findOne({email,password});
-        if(!existinguser){
+        const user = await User.findOne({email,password});
+        if(!user){
             return res.render("login",{
                 error: "invalid email or password"
             }); 
         }//render the home page after successful login
         //if all correct in your login then i will create a session id for you
-        const sessionId = uuidv4();
-        setUser(sessionId, existinguser)
-        res.cookie('uid',sessionId)
+        //const sessionId = uuidv4(); no need of session id now we are using stateless
+        const token = setUser(user)
+        res.cookie('uid',token)
         return res.redirect("/")
     }catch(err){
         return res.render("login",{error: "something went wrong"})
